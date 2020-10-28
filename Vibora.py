@@ -20,7 +20,7 @@ def change(x, y):
 
 def inside(head):
     "Return True if head inside boundaries."
-    return -210 < head.x < 190 and -210 < head.y < 190
+    return -210 < head.x < 190 and -200 < head.y < 200
 
 def move():
     "Move snake forward one segment."
@@ -74,7 +74,7 @@ def movefood():
         
 
 
-    ontimer(movefood,500)
+    ontimer(movefood,1000)
 
 setup(420, 420, 370, 0)
 hideturtle()
@@ -86,4 +86,3 @@ onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
 movefood()
-done()
