@@ -17,7 +17,13 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 colors = ['black','purple','blue','yellow','brown']
-color = choice(colors)
+colorS = choice(colors)
+colorF = choice(colors)
+while True:
+    if colorS == colorF:
+        colorS=choice(colors)
+    else:
+        break
 def change(x, y):
     "Change snake direction."
     aim.x = x
@@ -49,11 +55,21 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, color)
+        square(body.x, body.y, 9, colorS)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorF)
     update()
     ontimer(move, 100)
+
+def movefood():
+    food.x += randrange(-10,11,10)
+    food.y += randrange(-10,11,10)
+
+
+        
+
+
+    ontimer(movefood,50)
 
 setup(420, 420, 370, 0)
 hideturtle()
@@ -64,4 +80,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+movefood()
 done()
