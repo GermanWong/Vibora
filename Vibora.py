@@ -19,6 +19,11 @@ aim = vector(0, -10)
 colors = ['black','purple','blue','yellow','brown']
 colorS = choice(colors)
 colorF = choice(colors)
+while True:
+    if colorS == colorF:
+        colorS=choice(colors)
+    else:
+        break
 def change(x, y):
     "Change snake direction."
     aim.x = x
